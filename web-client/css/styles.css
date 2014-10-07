@@ -1,0 +1,170 @@
+/*
+    Stile di servizio foowd-beta
+*/
+/*
+colori istituzionali, da scuro a chiaro
+#463837
+#655653
+#877873
+#aea098
+#d7cbc1
+, e verdone
+#637964
+*/
+
+body *[onclick] {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#foowd_logo {
+    font: bold 38pt "circular", sans-serif;
+    color: white;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+#page_description {
+  margin-left: 10px;
+  text-align: left;
+}
+
+#footer {
+  background-color: #d7cbc1;
+  color: #637964;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+}
+
+#footer td {
+  width: 33%;
+  text-align: center;
+  padding: 0px 10px;
+}
+
+#footer td:first-child {
+  text-align: left;
+}
+
+#footer td:last-child {
+  text-align: right;
+}
+
+#footer a::before {
+  color: #637964;
+  text-decoration: none;
+}
+
+#main_alerts {
+  position: absolute;
+  top: 100px;
+  width: 45%;
+  height: 300px;
+  overflow-y: hidden;
+}
+
+.alert {
+  font-weight: normal;
+  font-size: 2em;
+  color: red;
+  background-color: rgba(255,255,255,0.9);
+  border: 1px solid orange;
+}
+.message {
+  font-weight: normal;
+  font-size: 1.5em;
+  color: #637964;
+  background-color: rgba(255,255,255,0.9);
+  border: 1px solid #62BB66;
+}
+
+.accessControl:not(.accessHide) {
+  display: none;
+}
+.accessLeader {
+  display: none;
+}
+
+.login {
+    float: right;
+}
+
+.dueError {
+  background-color: #ffdddd;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.waiting-silk {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: transparent;
+  z-index: 1000;
+}
+.waiting-silk div.silk {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  bottom: 40px;
+  right: 20px;
+  background-color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding-top: 20%;
+}
+.waiting-silk .silk p,.waiting-silk .silk p pre {
+  color: black;
+  font-size: 20px;
+}
+
+.carreview {
+  position: absolute;
+  width: 250px;
+  /* left, top, height da posizione elemento selezionato */
+  left: 60%;
+  top: 20px;
+  height: 20px;
+
+  border: 2px solid #463837;
+  background-color: rgba(255,255,255,0.9);
+  padding: 2px;
+  font-size: 12px;
+  overflow: auto;
+}
+.carreview table {
+  border: 0;
+  padding: 0;
+  border-collapse: collapse;
+  font-size: inherit;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.carreview tbody {
+  font-size: inherit;
+}
+.carreview tr {
+  border-bottom: 1px dashed #d7cbc1;
+  font-size: inherit;
+}
+.carreview td:first-child {
+  width: 150px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: inherit;
+}
+.carreview td:nth-child(0n+2) {
+  width: 35px;
+  text-align: right;
+  font-size: inherit;
+}
+.carreview td:last-child {
+  width: 65px;
+  text-align: right;
+  font-size: inherit;
+}

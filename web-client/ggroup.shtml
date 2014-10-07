@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+
+  <!--#set var="page" value="Gruppo" --> 
+  <!--#set var="page_desc" value="Gestione del gruppo" --> 
+  <title>f oo w d  - in progress - <!--#echo var="page" --></title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/foowd.css">
+
+  <script type="text/javascript" src="js/lib/getParams.js"></script>
+  <script type="text/javascript">
+    accessHash=par.hash;
+    par.uriHash=encodeURIComponent(par.hash);
+    debug=3;
+  </script>
+  <script type="text/javascript" src="js/lib/ajax.js"></script>
+  <script type="text/javascript" src="js/lib/hash.js"></script>
+  <script type="text/javascript" src="js/foowd_generics.js"></script>
+  <script type="text/javascript" src="js/access.js"></script>
+  <script type="text/javascript" src="js/carrello.js"></script>
+ 	<script type="text/javascript" src="prodotti/prodotti.js"></script>
+  <script type="text/javascript" src="js/gruppo.js"></script>
+  <script type="text/javascript">
+  waitingSilk.neededOnLoad=0;
+
+  var gordine = new Ordine(prodotti);
+  gordine.init();
+  var gruppo = new Gruppo(gordine);
+  if ("grp" in par) {
+    gruppo.fromPar(par.grp);
+    par.gname=gruppo.nome;
+    waitingSilk.hide();
+  }
+
+  function leggiGruppo(esito) {
+    esitoGruppo(esito, 'lettura');
+  }
+  function scriviGruppo(esito) {
+    esitoGruppo(esito, 'scrittura');
+  }
+  function esitoGruppo(esito, oper) {
+    switch((esito+":").split(":")[0]) {
+    case "ok":
+      // re-impagino con i dati letti
+      impaginaGruppo();
+
+      break;
+    case "error":
+      foowd_alerts("Attenzione, il seguente errore è avvenuto durante la "+oper+" del gruppo: "+
+          ((esito+":").split(":")[1])+". Contattaci per segnalare il problema.");
+    case "unexpected":
+      foowd_alerts("Attenzione, un errore inatteso alla "+oper+" del gruppo. Contattaci per segnalare il problema.");
+      break;
+    case "ko":
+       foowd_alerts("Attenzione, un errore inatteso durante la "+oper+" del gruppo. Contattaci per segnalare il problema.");
+      break;
+    default:
+      // unknown, ...
+      foowd_alerts("Attenzione, un errore sconosciuto alla "+oper+" del gruppo. Contattaci per segnalare il problema.");
+    }
+    waitingSilk.hide();
+  }
+
+  function impaginaGruppo() {
+    var cr=document.getElementById('gruppo');
+    var ct=cr.getElementsByTagName('table')[0];
+    var i=0,ii,tot=0,ele,inp;
+
+    // scrivo l'elenco soggetti
+    while (ct.rows.length>0) ct.deleteRow(-1);
+    if (gruppo.leader) {
+      ct.insertRow(i);
+      ct.rows[i].insertCell(0).innerHTML="Organizzatore:";
+      ct.rows[i].insertCell(1).innerHTML=gruppo.leader.email;
+      ct.rows[i].insertCell(2).innerHTML=" ";
+      ct.rows[i].insertCell(3).innerHTML=(gruppo.leader.user?gruppo.leader.user:"");
+      i++;
+    }
+    if (gruppo.componenti.length>1) {
+      ct.insertRow(i);
+      ct.rows[i].insertCell(0).innerHTML="#";
+      ct.rows[i].insertCell(1).innerHTML="e-mail partecipante";
+      ct.rows[i].insertCell(2).innerHTML="codice num.";
+      ct.rows[i].insertCell(3).innerHTML="stato";
+    } else {
+      ct.insertRow(i);
+      ct.rows[i].insertCell(0).innerHTML="<st> --- gruppo vuoto --- </st>";
+    }
+    for (ii=0; ii<gruppo.componenti.length; ii++) {
+      ele=gruppo.componenti[ii];
+      if (ele.stato=='s') continue; // salto i soggetti sospesi
+      if (ele.ord==1) continue; // salto il leader
+      tot+=1;
+      i++;
+      ct.insertRow(i);
+      ct.rows[i].insertCell(0).innerHTML=tot;
+      ct.rows[i].insertCell(1).innerHTML=ele.email;
+      ct.rows[i].insertCell(2).innerHTML=ele.ord;
+      ct.rows[i].insertCell(3).innerHTML=(ele.stato=='i'?"invitato":"attivo");
+    }
+    cr.style.display='';
+    
+    document.getElementById('gname').value=gruppo.nome;
+  }
+
+  function preparaDati() {
+    var dati="?email={email}&user={user}&hash={hash}&grp={gruppo}".
+        replace("{email}",par.email).
+        replace("{user}",par.user).
+        replace("{hash}",par.uriHash).
+        replace("{gruppo}",gruppo.toPar());
+    this['search']=dati;
+  }
+  
+  function salvaNome() {
+    var ng=document.getElementById('gname').value;
+    if (ng!=gruppo.nome) {
+      gruppo.init(ng, {email:par.email});
+    }
+  }
+
+  var email_rx=/^\w+(\.\w+)*@\w+(\.\w+)+$/i;
+  function salvaPart() {
+    var np=document.getElementById('gemail').value;
+    if (email_rx.test(np)) {
+      gruppo.add(np);
+      document.getElementById('gemail').value="";
+    } else {
+      foowd_alerts("Attenzione, '"+np+"' non risulta un indirizzo email corretto!");
+    }
+  }
+
+  function init() {
+    // pezza anti sdoppiamento waiting-silk
+    document.body.removeChild(waitingSilk);
+    replacePar(document.body, '!blank');
+    // pezza anti sdoppiamento waiting-silk
+    document.body.appendChild(waitingSilk);
+    //!! replace par ha un baco: resetta tutto il DOM ricreando ogni oggetto, 
+    //!! quindi scrivere tutte le manipolazioni del DOM qui sotto!!
+
+    var cr;
+    cr=document.getElementById('gruppo');
+    cr.appendChild(document.createElement('table'));
+    impaginaGruppo();
+
+    if (access.superuser) {
+      // per i soli leader preparo AJAX e leggo gruppo intero
+      gruppo.toDB(par, scriviGruppo);
+    } else {
+      // metto in readonly il nome gruppo
+      document.getElementById('gname').readOnly="readOnly";
+    }
+    gruppo.fromDB(par, leggiGruppo).send();
+
+    
+    // aggiungo l'onclick ai link 
+    document.getElementById("lanlink").addEventListener('mousedown', preparaDati);
+    if (access.superuser) {
+      // aggiungo il salvataggio ai campi
+      document.getElementById('gname').addEventListener('keypress', keyPressed([13,9], salvaNome))
+      document.getElementById('gemail').addEventListener('keypress', keyPressed([13,9], salvaPart))
+    }
+  }
+  </script>
+</head>
+<body onload="init()">
+<!--#include virtual="header_foowd.shtml" -->
+
+  <form action="#">
+    <h1 class="accessControl">Gruppo di acquisto 
+      <input type="text" name="gname" id="gname" value="{gname}" placeholder="nome del gruppo" />
+    </h1>
+    <p class="istruzioni accessControl">In questa pagina trovi la composizione del tuo gruppo di acquisto.</p>
+    <p class="istruzioni accessControl accessLeader">In questa pagina puoi aggiungere l'indirizzo di persone che conosci e che vuoi invitare nel tuo gruppo di acquisto.
+    <br>Successivamente potrai controllare se si sono sono registrate verificando il loro stato.</p>
+    <p class="istruzioni accessControl">Da questa pagina puoi avere anche una visione d'insieme degli ordini fatti.</p>
+
+    <div id="gruppo"></div>
+    <p class="accessControl accessLeader">Nuovo partecipante - email:
+      <input type="text" name="gemail" id="gemail" placeholder="indirizzo e-mail" />
+    </p>
+
+  </form>
+
+  <div id="ordini"></div>
+
+  <a href="landing.shtml" id="lanlink">Torna al menu</a>
+
+<!--#include virtual="footer_foowd.shtml" -->
+</body>
+</html>

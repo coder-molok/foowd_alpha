@@ -1,0 +1,11 @@
+<div id="intestazione">
+  <div id="foowd_logo" title="foowd logo" class="logo-normale">
+    <img src="img/foowd_logo_760x190.png" alt="f oo w d" >
+  </div>
+  <div id="main_alerts"></div>
+</div>
+<div class="contenitore_testo">
+  <!--#if expr="$page!='Registrazione'" -->
+  <span class="login">sei registrato come: {user}</span>
+  <!--#endif -->
+  <h3 id="page_description"><!--#echo var="page_desc" --></h3>

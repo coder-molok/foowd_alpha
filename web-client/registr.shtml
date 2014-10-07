@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+
+  <!--#set var="page" value="Registrazione" --> 
+  <!--#set var="page_desc" value="Registrazione dei dati - consumatore" --> 
+  <title>f oo w d  - in progress - <!--#echo var="page" --></title>
+  <meta name="description" content="Pagina di registrazione per accedere a Foowd - versione beta">
+  <meta name="author" content="Molok" >
+  <meta name="date" content="2014-07-19T15:54:04+0200" >
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/foowd.css">
+  <link rel="stylesheet" href="css/switch.css">
+  
+  <script type="text/javascript" src="js/lib/getParams.js"></script>
+  <script type="text/javascript">
+    accessHash=par.hash;
+    par.uriHash=encodeURIComponent(par.hash);
+    debug=3;
+  </script>
+  <script type="text/javascript" src="js/lib/ajax.js"></script>
+  <script type="text/javascript" src="js/lib/switch.js"></script>
+  <script type="text/javascript" src="js/lib/due.js"></script>
+  <script type="text/javascript" src="js/foowd_generics.js"></script>
+  <script type="text/javascript" src="js/access.js"></script>
+  <script type="text/javascript">
+    access.onresponse=function () {
+      if (debug==3) console.log("access onresponse: "+this.email);
+      par.email=this.email;
+      replacePar(document.body);
+      
+      // attivo la gestione dei campi a scomparsa
+      Switch.on();
+
+      // segnalazione per utenti già registrati
+      if (this.active) {
+        foowd_alerts('Attenzione! è già avvenuta la registrazione per questo indirizzo email!');
+        
+        var blk=document.forms[0].elements;
+        
+        blk['user'    ].parentNode.parentNode.style.display='none';
+        blk['nome'    ].parentNode.parentNode.style.display='none';
+        blk['cognome' ].parentNode.parentNode.style.display='none';
+        blk['telefono'].parentNode.parentNode.style.display='none';
+        blk['grphd'].parentNode.parentNode.classList.add('accessHide');
+
+        blk['primoAccesso'].name="nonPrimoAccesso";        
+        blk['conferma'].value="Prosegui";        
+      } else {
+        if (this.superuser) {
+          document.getElementById('grphd').click();
+        }
+      }
+    }
+    function finput_submit() {
+      var ret=false;
+      var finput,ind,ind_val,swc;
+
+      if (access.active) {
+        ret=true;
+      } else {
+        finput=document.getElementById('finput');
+        ind=finput.elements['indirizzo'];
+        ind_val=ind.value;
+        swc=document.getElementById('grphd');
+        if (swc.switchStatus==false) {
+          // indirizzo nascosto, svuoto
+          ind.value="";
+        }
+        ret=checkDue(finput);
+        if (!ret) {
+          foowd_alerts('Compilare correttamente il modulo di registrazione. I campi errati sono evidenziati in rosso.');
+          // in caso di non-sottomissione ripopolo il campo
+          ind.value=ind_val;
+        }
+      }
+      return ret;
+    }
+  </script>
+</head>
+
+<body>
+<!--#include virtual="header_foowd.shtml" -->
+
+  <h4>Scopri i vantaggi di acquistare in gruppo!</h4>
+  <p class="istruzioni">Foowd è il primo sito di e-commerce alimentare dove puoi unirti facilmente ad altri consumatori, amici e parenti per trovare prodotti unici da tutta Italia e risparmiare acquistando in gruppo.</p>
+  <p class="istruzioni accessControl">Se sei su questa pagina, significa che sei stato invitato in esclusiva alla versione di prova della piattaforma. La registrazione è gratuita, basta disporre dell’indirizzo e-mail a cui sei stato contattato, utilizzato esclusivamente dai membri del gruppo per coordinarsi.</p>
+  <p class="istruzioni accessControl accessHide">Attualmente stiamo affinando la struttura e il sistema funziona solo su invito, <a href="mailto:foowd.info@gmail.com?subject=Richiesta%20di%20invito&body=%3A%3Ainserisci%20qui%20una%20descrizione%20di%20chi%20sei%20e%20come%20hai%20conosciuto%20foowd,%20grazie%3A%3A">contattaci</a> per avere informazioni!</p>
+  <p class="istruzioni">Per non essere più solo nei tuoi acquisti online!</p>
+  <form id="finput" action="landing.shtml" method="get" onsubmit="return finput_submit()">
+    <table class="accessControl">
+    <colgroup>
+      <col style="width:150px" />
+      <col style="width:100px" />
+      <col style="width:170px" />
+      <col style="width:150px" />
+    </colgroup>
+    <tr><td>email</td>
+        <td colspan='3'><input type="text" size="25" name="email" readonly="true" value="{email}" /></td></tr>
+    <tr><td>Nome visualizzato</td>
+        <td colspan='3'><input type="text" size="40" name="user" is_due="!x" title="* scegli un nickname riconoscibile (es. nome, cognome o soprannome), almeno da chi ti conosce." /></td></tr>
+    <tr><td>Nome</td>
+        <td colspan='3'><input type="text" size="40" name="nome" is_due="!a" /></td></tr>
+    <tr><td>Cognome</td>
+        <td colspan='3'><input type="text" size="40" name="cognome" is_due="!a" /></td></tr>
+    <tr><td>Telefono</td>
+        <td colspan="3"><input type="text" size="15" name="telefono" is_due="!n" /></td></tr>
+    <tr class="accessControl accessLeader"><td colspan='3'>vuoi essere il riferimento per altri acquirenti <sup>*</sup>?</td>
+        <td><input type="checkbox" id="grphd" name="grphd" class='switch' 
+              switched="indirizzo" initialSwitch="off" /></td></tr>
+    <tr class="switchable" switch="indirizzo"><td>indirizzo</td>
+        <td colspan='3'><input type="text" size="30" name="indirizzo" is_due="?grphd:!x" />
+        &nbsp;N.<input type="text" size="5" name="nciv" is_due="?grphd:x" /></td></tr>
+    <tr class="switchable" switch="indirizzo"><td>comune</td>
+        <td colspan='3'><input type="text" size="30" name="comune" is_due="?grphd:!x" /></td></tr>
+    <tr class="switchable" switch="indirizzo"><td>CAP</td>
+        <td><input type="text" size="5" maxlength="5" name="cap" is_due="?grphd:!n" /></td>
+        <td style="text-align: right;">Provincia (sigla)</td>
+        <td><input type="text" size="2" maxlength="2" name="provincia" is_due="?grphd:!a" /></td></tr>
+    <tr><td colspan='3'></td>
+        <td><input type="submit" name="conferma" value="Conferma" id='conferma' /></td></tr>
+    </table>
+    <input type="hidden" name="primoAccesso" value="true" />
+    <input type="hidden" name="hash" value="{hash}" />
+  </form>
+  <p class="accessControl accessLeader">
+    <em>*</em>: Essere un riferimento significa gestire l'arrivo del pacco, la consegna dei prodotti ai partecipanti all'acquisto con ritiro dei soldi dovuti.
+  </p>
+
+<!--#include virtual="footer_foowd.shtml" -->
+</body>
+</html>

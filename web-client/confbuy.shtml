@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+  <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+
+  <!--#set var="page" value="Conferma" --> 
+  <!--#set var="page_desc" value="Conferma ordine" --> 
+	<title>f oo w d  - in progress - <!--#echo var="page" --></title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/foowd.css">
+
+  <script type="text/javascript" src="js/lib/getParams.js"></script>
+  <script type="text/javascript">
+    accessHash=par.hash;
+    par.uriHash=encodeURIComponent(par.hash);
+    debug=3;
+  </script>
+  <script type="text/javascript" src="js/lib/ajax.js"></script>
+  <script type="text/javascript" src="js/lib/hash.js"></script>
+  <script type="text/javascript" src="js/foowd_generics.js"></script>
+  <script type="text/javascript" src="js/access.js"></script>
+  <script type="text/javascript" src="js/carrello.js"></script>
+	<script type="text/javascript" src="prodotti/prodotti.js"></script>
+  <script type="text/javascript">
+
+  waitingSilk.neededOnLoad=0; // resta il velo finché non ho l'esito del salvataggio
+
+  var carrello = new Carrello(prodotti);
+  if ("cart" in par) {
+    carrello.fromPar(par.cart);
+  }
+
+  function salvaCarrello(esito) {
+    switch((esito+":").split(":")[0]) {
+    case "ok":
+      foowd_alerts("Il tuo ordine è stato salvato correttamente.");
+      foreach(document.getElementsByClassName('ordineOk'),
+          function (el) { if (typeof el == 'object') { el.style.display="block";}});
+      break;
+    case "error":
+      foowd_alerts("Attenzione, il seguente errore è avvenuto durante il salvataggio dell'ordine: "+
+          ((esito+":").split(":")[1])+". Contattaci per segnalare il problema.");
+    case "unexpected":
+      foowd_alerts("Attenzione, un errore inatteso al salvataggio dell'ordine. Contattaci per segnalare il problema.");
+      break;
+    case "ko":
+      foreach(document.getElementsByClassName('ordineKo'),
+          function (el) { if (typeof el == 'object') { el.style.display="block";}});
+      foowd_alerts("Attenzione, un errore inatteso durante il salvataggio dell'ordine. Contattaci per segnalare il problema.");
+      break;
+    default:
+      // unknown, ...
+      foowd_alerts("Attenzione, un errore sconosciuto al salvataggio dell'ordine. Contattaci per segnalare il problema.");
+    }
+    waitingSilk.hide();
+  }
+
+  function preparaDatiCarrello() {
+    var dati="?email={email}&user={user}&hash={hash}&cart={cart}".
+        replace("{email}",par.email).
+        replace("{user}",par.user).
+        replace("{hash}",par.uriHash).
+        replace("{cart}",par.cart);
+    this['search']=dati;
+  }
+  function preparaDatiUtente() {
+    var dati="?email={email}&user={user}&hash={hash}".
+        replace("{email}",par.email).
+        replace("{user}",par.user).
+        replace("{hash}",par.uriHash);
+    this['search']=dati;
+  }
+  function foreach(coll, func) {
+    for (var i=0; i<coll.length; i++) {
+      func(coll[i]);
+    }
+  }
+  function init() {
+    // pezza anti sdoppiamento waiting-silk
+    document.body.removeChild(waitingSilk);
+    replacePar(document.body, true);
+    // pezza anti sdoppiamento waiting-silk
+    document.body.appendChild(waitingSilk);
+    //!! replacePar ha un baco: resetta tutto il DOM ricreando ogni oggetto, 
+    //!! quindi scrivere tutte le manipolazioni del DOM qui sotto!!
+    waitingSilk.show();
+    foreach(document.getElementsByClassName('ordineOk'),
+        function (el) { if (typeof el == 'object') { el.style.display="none";}});
+    foreach(document.getElementsByClassName('ordineKo'),
+        function (el) { if (typeof el == 'object') { el.style.display="none";}});
+
+    carrello.init();
+    
+    // salvo i dati del carrello
+    var salva = carrello.toDB(par, salvaCarrello);
+    salva.send(salva.postData);
+
+    // preparo il messaggio di conferma
+    
+    // aggiungo l'onclick ai link 
+    document.getElementById("carlink").addEventListener('mousedown', preparaDatiCarrello);
+    document.getElementById("catlink").addEventListener('mousedown', preparaDatiUtente);
+    
+    // completo eventuale mail di fallimento
+    var testo = "Da: "+par.user+"\n\nOrdine fallito:";
+    for (var i=0; i<carrello.prodotti();i++) {
+      var myp=carrello.completa(i);
+      testo+="\n";
+      testo+=[myp.prodotto,myp.qualita,myp.produttore,myp.porzione].join(", ");
+      testo+=", qta:"+myp.qta+", prezzo:"+myp.prezzo+", costo:"+(myp.prezzo*myp.qta);
+    }
+    document.getElementById('mailbody').value=testo;
+  }
+  </script>
+</head>
+<body onload="init()">
+<!--#include virtual="header_foowd.shtml" -->
+
+  <p class="istruzioni ordineOk bold">Le tue preferenze sono state registrate.</p>
+  <p class="istruzioni ordineOk">Per poter effettuare un acquisto vantaggioso, è stata fissata da ogni produttore una soglia minima di quantità da raggiungere per poter effettuare l’ordine.
+  <!-- Su questa pagina puoi tracciare i progressi nel raggiungere questo obiettivo.--></p>
+  <p class="istruzioni ordineOk">Invita altri consumatori e aggiungi altri ordini a piacimento. Una volta raggiunta la soglia, l’ordine sarà processato dal produttore e riceverete direttamente via email un riepilogo dell’acquisto e le istruzioni per il 
+  <span title="*tramite paypal, carta o contrassegno in base al produttore" style="border-bottom: 1px dashed blue;">pagamento.</span></p>
+
+  <p class="istruzioni ordineKo bold">Attenzione! un problema tecnico ha impedito la registrazione del tuo ordine.</p>
+  <p class="istruzioni ordineKo">Ci scusiamo per il disagio.</p>
+  <p class="istruzioni ordineKo">Puoi provare a ripetere l'operazione tornando al Carrello, ma se hai già riprovato puoi contattarci via mail per segnalare l'ordine fallito ed il problema.</p>
+  <form action="mailto:foowd.info@gmail.com" method="GET">
+    <input type="hidden" name="object" value="Segnalazione problema alla registrazione dell'ordine" />
+    <input type="hidden" name="from" value="{email}" />
+    <input type="hidden" name="body" value="Da: {user}" id="mailbody" />
+    <p class="istruzioni ordineKo" onclick="this.parentNode.submit()">Segnala il problema!</p>
+  </form>
+
+  <p class="ordineKo">
+    <a href="revubuy.shtml" id="carlink">Torna al carrello</a>
+  </p>
+  <p class="ordineOk">
+    <a href="catalog.shtml" id="catlink">Torna al catalogo</a>
+  </p>
+
+<!--#include virtual="footer_foowd.shtml" -->
+</body>
+</html>

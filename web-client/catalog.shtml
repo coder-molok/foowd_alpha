@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+  <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+
+  <!--#set var="page" value="Catalogo" --> 
+  <!--#set var="page_desc" value="Catalogo Prodotti" --> 
+	<title>f oo w d  - in progress - <!--#echo var="page" --></title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/foowd.css">
+  <link rel="stylesheet" href="css/catalog.css">
+
+  <script type="text/javascript" src="js/lib/getParams.js"></script>
+  <script type="text/javascript">
+    accessHash=par.hash;
+    par.uriHash=encodeURIComponent(par.hash);
+    debug=3;
+  </script>
+  <script type="text/javascript" src="js/lib/ajax.js"></script>
+  <script type="text/javascript" src="js/lib/hash.js"></script>
+  <script type="text/javascript" src="js/foowd_generics.js"></script>
+  <script type="text/javascript" src="js/access.js"></script>
+  <script type="text/javascript" src="js/carrello.js"></script>
+	<script type="text/javascript" src="prodotti/prodotti.js"></script>
+  <script type="text/javascript">
+  //**una decina di prodotti --- meglio se da file esterno --- per ora json
+  //var prodotti= []; // segnaposto
+	
+  var carrello = new Carrello(prodotti);
+  if ("cart" in par) {
+    carrello.fromPar(par.cart);
+  }
+  function caron(ev) {
+    var cr=document.getElementById('floatingcr');
+    var i,tot=0,prd;
+    cr.style.left= this.offsetLeft+"px";
+    cr.style.top = (this.offsetTop-16*(carrello.prodotti()+2.5))+"px";
+    cr.style.height= (16*(carrello.prodotti()+2))+"px";
+    // scrivo l'elenco prodotti e totale
+    while (cr.firstChild.rows.length>0) cr.firstChild.deleteRow(-1);
+    for (i=0; i<carrello.prodotti(); i++) {
+      cr.firstChild.insertRow(i);
+      prd=carrello.completa(i);
+      if (prd.qta==0) continue; // salto i prodotti rimossi
+      cr.firstChild.rows[i].insertCell(0).innerHTML=prd.prodotto;
+      cr.firstChild.rows[i].insertCell(1).innerHTML=prd.qta+" x";
+      cr.firstChild.rows[i].insertCell(2).innerHTML=euro(prd.prezzo);
+      cr.firstChild.rows[i].phash=prd.hash;
+      tot+=prd.prezzo*prd.qta;
+    }
+/*    cr.firstChild.insertRow(i);
+    cr.firstChild.rows[i].insertCell(0).innerHTML="&nbsp;";
+    cr.firstChild.rows[i].cells[0].style.fontSize="0.5em";
+    i++;
+*/    cr.firstChild.insertRow(i);
+    cr.firstChild.rows[i].insertCell(0).innerHTML=(i==0?"<i>Carrello vuoto</i>":"<b>totale</b>");
+    cr.firstChild.rows[i].insertCell(1).innerHTML="&nbsp;";
+    cr.firstChild.rows[i].cells[1].style.fontSize="1.7em";
+    cr.firstChild.rows[i].insertCell(2).innerHTML=(i==0?"":euro(tot));
+    cr.style.display='';
+
+    /*
+    var cp=carrello.toPar();
+    console.log(cp);
+    carrello.fromPar(cp);
+    */
+  }
+  function caroff(ev) {
+    this.style.display='none';
+  }
+  function init() {
+    replacePar(document.body, true);
+    //!! replace par ha un baco: resetta tutto il DOM ricreando ogni oggetto, 
+    //!! quindi scrivere tutte le manipolazioni del DOM qui sotto!!
+    carrello.init();
+    // preparo il car-review
+    var cr=document.getElementById('floatingcr');
+    cr.style.display='none';
+    while (cr.childNodes.length>0 && cr.firstChild.tagName!='TABLE') cr.removeChild(cr.firstChild);
+    if (cr.childNodes.length==0) cr.appendChild(document.createElement('table'));
+    var cl=document.getElementById('carlink');
+    cl.addEventListener("mouseover", caron, false);
+    cr.addEventListener("mouseleave", caroff, false);
+    impaginaProdotti(prodotti,'prodotti');
+    
+    // aggiungo l'onclick al link del carrello
+    document.getElementById("carlink").addEventListener('mousedown', function () {
+        var dati="?email={email}&user={user}&hash={hash}&prv=catalog&cart={cart}".
+            replace("{email}",par.email).
+            replace("{user}",par.user).
+            replace("{hash}",par.uriHash).
+            replace("{cart}",carrello.toPar());
+        this['search']=dati;
+      });
+  }
+	</script>
+	<script type="text/javascript" src="js/minicat.js"></script>
+</head>
+<body onload="init();">
+<!--#include virtual="header_foowd.shtml" -->
+
+  <h1>Catalogo di prodotti attualmente disponibili</h1>
+  <p class="istruzioni">Segue l'elenco dei prodotti da noi selezionati, attualmente disponibili o in via di esaurimento.</p>
+  <p class="istruzioni">In caso di esaurimento verranno evase le richieste in base alla loro cronologia di selezione.</p>
+  <p class="istruzioni">Puoi verificare se un prodotto è esaurito dopo la selezione dallo stato dell'ordine.</p>
+
+  <div id="prodotti" class="accessControl"></div>
+
+  <a href="revubuy.shtml" id="carlink">Salva la selezione</a>
+  <div id="floatingcr" class="carreview"></div>
+
+<!--#include virtual="footer_foowd.shtml" -->
+</body>
+</html>

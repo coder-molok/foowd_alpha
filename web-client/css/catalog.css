@@ -1,0 +1,85 @@
+/*
+    Stile del catalogo di prodotti
+*/
+
+#prodotti {
+  height: 400px;
+  overflow-y: scroll;
+  shadow: 3px black;
+  margin: 30px 0;
+}
+
+.catalog {
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  /*  table-layout: fixed;*/
+  margin-bottom: 5px;
+}
+
+.catalog img {
+  max-width: 150px;
+  max-height: 200px;
+  vertical-align: top;
+  margin: 2px;
+}
+
+.catalog tr:first-child {
+	font-size: 18px;
+	vertical-align: top;
+}
+
+.catalog td {
+    border: 1px solid #dddddd;
+    color: #877873;
+}
+.catalog tr:first-child td:first-child {
+    min-width: 100px;
+}
+
+.catalog span.label {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.catalog span.prezzo {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #877873;
+  display: block;
+  float: right;
+}
+
+.catalog td:last-child {
+    width: 450px;
+}
+
+.catalog button {
+    border-radius: 4px;
+    border: 2px solid #463837;
+    height: 16px;
+    width: 16px;
+    background-color: #877873;
+    margin: 2px;
+    padding: 0;
+    float: right;
+}
+
+.catalog button span {
+    font-weight: bolder;
+    font-size: 16px;
+    position: relative;
+    top: -5px;
+}
+
+.catalog button.add span {
+  color: lightgreen;
+  left: -4px;
+}
+
+.catalog button.remove span {
+  color: lightcoral;
+}
+
+.catalog button span:active {
+  color: lightyellow;
+}
