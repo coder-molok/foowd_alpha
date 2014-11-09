@@ -28,7 +28,7 @@
   <script type="text/javascript" src="js/lib/ajax.js"></script>
   <script type="text/javascript" src="js/lib/switch.js"></script>
   <script type="text/javascript" src="js/lib/due.js"></script>
-  <script type="text/javascript" src="js/lib/buyPanel.js"></script>
+  <script type="text/javascript" src="js/buyPanel.js"></script>
   <script type="text/javascript" src="js/gruppo.js"></script>
   <script type="text/javascript" src="js/foowd_generics.js"></script>
   <script type="text/javascript" src="js/access.js"></script>
