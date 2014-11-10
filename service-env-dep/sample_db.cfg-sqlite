@@ -4,6 +4,7 @@
 */
 // variabilie che determina se verranno istanziate le funzioni mySQLi o SQLite3
 // il valore può essere 'mysql' o 'sqlite'
+
 $dbcfg="sqlite";
 
 $dbhost="";

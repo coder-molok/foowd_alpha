@@ -166,7 +166,15 @@ if(checkdb() && $chiave!=='') {
 <?
 cleardb();
 if(checkdb()) {
-    selectdb('Lista-hash-attuali', "SELECT email, hash, CASE WHEN telefono IS NULL THEN 0 ELSE 1 END as registrato, CASE WHEN indirizzo IS NOT NULL and LENGTH(LTRIM(RTRIM(indirizzo)))>0 THEN 0 ELSE 1 END as leader FROM foowd_utenti ORDER BY CASE WHEN telefono IS NULL THEN 0 ELSE 1 END, CASE WHEN indirizzo IS NOT NULL and LENGTH(LTRIM(RTRIM(indirizzo)))>0 THEN 0 ELSE 1 END");
+    selectdb('Lista-hash-attuali', "SELECT email, hash,
+                                    CASE WHEN telefono IS NULL
+                                    THEN 0 ELSE 1 END as registrato,
+                                    CASE WHEN indirizzo IS NOT NULL
+                                         and LENGTH(LTRIM(RTRIM(indirizzo)))>0
+                                         THEN 0 ELSE 1 END as leader FROM foowd_utenti
+                                         ORDER BY CASE WHEN telefono IS NULL THEN 0 ELSE 1 END,
+                                    CASE WHEN indirizzo IS NOT NULL and LENGTH(LTRIM(RTRIM(indirizzo)))>0
+                                    THEN 0 ELSE 1 END");
     if(checkdb() && $result_db) {
         $titoloRegistrati=false;
         while ($row = nextrowdb()) {
@@ -187,7 +195,7 @@ if(checkdb()) {
     </tr>
 <?
         }
-        
+
     }
 }
 ?>

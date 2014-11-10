@@ -2,7 +2,8 @@
 /**
   * Pannello a scomparsa con il riepilogo dell'ordine gruppo
   * (5,1 | 5,2)
-  *
+  *       par -> parametri che vengono passati tra le pagine
+	*
   *
   */
 
@@ -10,7 +11,7 @@
 function BuyPanel (groupObject){
 	"use strict";
 	this.groupId = -1;
-	/* Se l'oggeto 'groupObject' non ha il parametro groupId, non inizializzo l'oggetto 
+	/* Se l'oggeto 'groupObject' non ha il parametro groupId, non inizializzo l'oggetto
 	 *
 	 */
 	this.init = function(){
@@ -53,13 +54,14 @@ function BuyPanel (groupObject){
 		        	alert(res);
 		        };
 		        request.onfail = function(err){
-		        	alert(err);		        
+		        	alert(err);
 		        };
 		        request.send();
 			};
 		}else{
 			//Non ho incluso ajax.js
 			console.log("Warning: Ajax functions are off");
+			return false;
 		}
 	}else{
 		//quando l'inizializzazione dell'oggetto fallisce l'errore è generico

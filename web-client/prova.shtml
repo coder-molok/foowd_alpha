@@ -57,8 +57,6 @@
       groupId : -1
     };
     var panel = new BuyPanel(group,"pippo");
-    var products = ["pippo","pluto","topolino"];
-    panel.setPanelList(products);
 </script>
 </body>
 </html>
