@@ -8,16 +8,22 @@
   */
 
  //costruisce il pannello con l'ordine a partire dal gruppo
-function BuyPanel (groupObject){
+function BuyPanel (groupObject, htmlId){
 	"use strict";
-	this.groupId = -1;
-	/* Se l'oggeto 'groupObject' non ha il parametro groupId, non inizializzo l'oggetto
-	 *
+	this.groupId = -1; 			 //gruppo d'acquisto di riferimento
+	this.tagId = "#"; 			 //tag dell'oggetto html associato al pannello
+	this.contentTagId = "#"; //tag dell'oggetto html associato al contenuto del pannello
+	this.state = true; 			 //stato del pannello, visibile oppure nascosto
+	/*
+	 * Se l'oggeto 'groupObject' non ha il parametro groupId, non inizializzo l'oggetto
 	 */
 	this.init = function(){
 		if (groupObject) {
 			if(groupObject.groupId){
 				this.groupId = groupObject.groupId;
+				this.tagId += htmlId;
+				this.contentTagId += htmlId + "-content";
+				console.log(this);
 				return true;
 			}else{
 				console.log("Error: groupId is not defined");
@@ -63,9 +69,41 @@ function BuyPanel (groupObject){
 			console.log("Warning: Ajax functions are off");
 			return false;
 		}
+		//Metodi a cui non serve Ajax
+
+
+		/*
+		* Listener(è in ascolto di un particolare evento)
+		* in questo caso il click su l'elemento #panel
+		*/
+		var self = this;
+		$(this.tagId).click(function(){
+				//switch dei due casi in cui il pannello sia aperto o chiuso
+				if (self.state){
+					//pannello chiuso -> lo apro
+					$(self.tagId).animate({
+							width: 250
+					},500, function(){
+							//callback dell'effetto
+					$(self.contentTagId).css("visibility","visible");
+					});
+				} else{
+					//pannello aperto -> lo chiudo
+					$(self.contentTagId).css("visibility","hidden");
+					$(self.tagId).animate({
+						width: 20
+					},500);
+				}
+				//lo stato del pannello è cambiato
+				self.state = !self.state;
+		});
+
+
 	}else{
 		//quando l'inizializzazione dell'oggetto fallisce l'errore è generico
 		console.log("Error: Panel init failed, check your params");
 		return false;
 	}
+
+
 };
