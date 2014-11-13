@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 
-  <!--#set var="page" value="Registrazione" --> 
-  <!--#set var="page_desc" value="Registrazione dei dati - consumatore" --> 
+  <!--#set var="page" value="Registrazione" -->
+  <!--#set var="page_desc" value="Registrazione dei dati - consumatore" -->
   <title>f oo w d  - in progress - <!--#echo var="page" --></title>
   <meta name="description" content="Pagina di registrazione per accedere a Foowd - versione beta">
   <meta name="author" content="Molok" >
@@ -15,7 +15,11 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/foowd.css">
   <link rel="stylesheet" href="css/switch.css">
-  
+  <link rel="stylesheet" href="css/panel.css">
+
+  <script type="text/javascript" src="js/common/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="js/common/jqueryui/jquery-ui.min.js"></script>
+
   <script type="text/javascript" src="js/lib/getParams.js"></script>
   <script type="text/javascript">
     accessHash=par.hash;
@@ -27,29 +31,30 @@
   <script type="text/javascript" src="js/lib/due.js"></script>
   <script type="text/javascript" src="js/foowd_generics.js"></script>
   <script type="text/javascript" src="js/access.js"></script>
+  <script type="text/javascript" src="js/buyPanel.js"></script>
   <script type="text/javascript">
     access.onresponse=function () {
       if (debug==3) console.log("access onresponse: "+this.email);
       par.email=this.email;
       replacePar(document.body);
-      
+
       // attivo la gestione dei campi a scomparsa
       Switch.on();
 
       // segnalazione per utenti già registrati
       if (this.active) {
         foowd_alerts('Attenzione! è già avvenuta la registrazione per questo indirizzo email!');
-        
+
         var blk=document.forms[0].elements;
-        
+
         blk['user'    ].parentNode.parentNode.style.display='none';
         blk['nome'    ].parentNode.parentNode.style.display='none';
         blk['cognome' ].parentNode.parentNode.style.display='none';
         blk['telefono'].parentNode.parentNode.style.display='none';
         blk['grphd'].parentNode.parentNode.classList.add('accessHide');
 
-        blk['primoAccesso'].name="nonPrimoAccesso";        
-        blk['conferma'].value="Prosegui";        
+        blk['primoAccesso'].name="nonPrimoAccesso";
+        blk['conferma'].value="Prosegui";
       } else {
         if (this.superuser) {
           document.getElementById('grphd').click();
@@ -84,7 +89,12 @@
 </head>
 
 <body>
+<div id="foowd-panel">
+  <div id="foowd-panel-content">
+  </div>
+</div>
 <!--#include virtual="header_foowd.shtml" -->
+
 
   <h4>Scopri i vantaggi di acquistare in gruppo!</h4>
   <p class="istruzioni">Foowd è il primo sito di e-commerce alimentare dove puoi unirti facilmente ad altri consumatori, amici e parenti per trovare prodotti unici da tutta Italia e risparmiare acquistando in gruppo.</p>
@@ -110,7 +120,7 @@
     <tr><td>Telefono</td>
         <td colspan="3"><input type="text" size="15" name="telefono" is_due="!n" /></td></tr>
     <tr class="accessControl accessLeader"><td colspan='3'>vuoi essere il riferimento per altri acquirenti <sup>*</sup>?</td>
-        <td><input type="checkbox" id="grphd" name="grphd" class='switch' 
+        <td><input type="checkbox" id="grphd" name="grphd" class='switch'
               switched="indirizzo" initialSwitch="off" /></td></tr>
     <tr class="switchable" switch="indirizzo"><td>indirizzo</td>
         <td colspan='3'><input type="text" size="30" name="indirizzo" is_due="?grphd:!x" />
@@ -130,6 +140,11 @@
   <p class="accessControl accessLeader">
     <em>*</em>: Essere un riferimento significa gestire l'arrivo del pacco, la consegna dei prodotti ai partecipanti all'acquisto con ritiro dei soldi dovuti.
   </p>
+  <script>
+    var group = {"groupId" : 1};
+    var panel = new BuyPanel(group,"foowd-panel");
+  </script>
+
 
 <!--#include virtual="footer_foowd.shtml" -->
 </body>

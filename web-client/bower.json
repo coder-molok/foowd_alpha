@@ -16,5 +16,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jqueryui": "~1.11.2",
+    "jquery": "~2.1.1",
+    "underscore": "~1.7.0"
+  }
 }
