@@ -23,7 +23,6 @@ function BuyPanel (groupObject, htmlId){
 				this.groupId = groupObject.groupId;
 				this.tagId += htmlId;
 				this.contentTagId += htmlId + "-content";
-				console.log(this);
 				return true;
 			}else{
 				console.log("Error: groupId is not defined");
