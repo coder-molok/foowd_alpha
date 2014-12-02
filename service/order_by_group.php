@@ -10,7 +10,8 @@ echo('<html>
 	<title>f oo w d  - in progress - Ordini per utenti dei gruppi</title>
 
   </head>
-  <body>');
+  <body>
+  <h1>Ordini per gruppo</h1><br><br>');
   
 $gruppo = "";
 $ordine = "";
