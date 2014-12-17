@@ -183,7 +183,7 @@ if (!isset($dbcfg)) {
                 $error_db="Errore in nextrowdb-$result_name :".$ex->getMessage().".";
                 $row = null;
             }
-            fprintf($logdb, "%s:%s\n", date("Ymd:His"),"nextrowdb $result_name = ".($result_db?$result_db->numColumns():"no-result")." = $row ::: $error_db");
+            fprintf($logdb, "%s:%s\n", date("Ymd:His"),"nextrowdb $result_name = ".($result_db?$result_db->numColumns():"no-result")." = ".($row?implode(":",array_values($row)):"no-result")." ::: $error_db");
             return $row;
         }
         function sqlescapedb($text) {

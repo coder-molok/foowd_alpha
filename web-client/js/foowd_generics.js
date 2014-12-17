@@ -7,7 +7,7 @@
 - euro (importo) restituisce una stringa formattata come prezzo.
 */
 var foowd = {
-  'dbhost': 'http://www.melaricosa.eu/' //http://localhost:8080/melaricosa.eu/
+  'dbhost': 'http://localhost:8080/foowd/service/'
 };
 
 /** oggetto di controllo della maschera di attesa
@@ -19,6 +19,7 @@ var waitingSilk = document.createElement('div');
   // creo il velo subito
   waitingSilk.className="waiting-silk";
   waitingSilk.appendChild(document.createElement('div')).className="silk";
+  aooebu cccchukd
   waitingSilk.firstChild.appendChild(document.createElement('p')).
       appendChild(document.createTextNode("Attendi un attimo ..."));
   waitingSilk.wbar=document.createElement('pre');
