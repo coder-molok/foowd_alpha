@@ -19,7 +19,6 @@ var waitingSilk = document.createElement('div');
   // creo il velo subito
   waitingSilk.className="waiting-silk";
   waitingSilk.appendChild(document.createElement('div')).className="silk";
-  aooebu cccchukd
   waitingSilk.firstChild.appendChild(document.createElement('p')).
       appendChild(document.createTextNode("Attendi un attimo ..."));
   waitingSilk.wbar=document.createElement('pre');
