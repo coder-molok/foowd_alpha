@@ -7,6 +7,8 @@
 - euro (importo) restituisce una stringa formattata come prezzo.
 */
 var foowd = {
+  //'http://www.melaricosa.eu/'
+  //http://localhost:8080/melaricosa.eu/
   'dbhost': 'http://localhost:8080/foowd/service/'
 };
 
@@ -24,7 +26,7 @@ var waitingSilk = document.createElement('div');
   waitingSilk.wbar=document.createElement('pre');
   waitingSilk.wbar.appendChild(document.createTextNode("[                              ]"));
   waitingSilk.firstChild.appendChild(document.createElement('p')).id="wbarHook";
-  
+
   // proprietà
   waitingSilk.running=false;
   waitingSilk.showed=false;
@@ -72,7 +74,7 @@ var waitingSilk = document.createElement('div');
       }
     }
   };
-  
+
   //* metodo che completa la creazione mostrando inizialmente il velo
   waitingSilk.run = function () {
     this.style.display='none';
@@ -88,7 +90,7 @@ var waitingSilk = document.createElement('div');
       }
     }
   };
-    
+
 // lancio waiting-silk quando il documento è pronto
 window.addEventListener("load", function () {waitingSilk.run();});
 
@@ -216,7 +218,7 @@ var myAbrvzn=[
   ]
  }
 ,{'search': /[aeiou\s]/
- ,'replac': [{'found': /[aeiou\s]/g, 'with': ''}] 
+ ,'replac': [{'found': /[aeiou\s]/g, 'with': ''}]
  }];
 function myAbrChng(what, where) {
   var strn=where;
