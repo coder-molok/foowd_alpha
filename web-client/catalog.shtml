@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="it">
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 
   <!--#set var="page" value="Catalogo" --> 
   <!--#set var="page_desc" value="Catalogo Prodotti" --> 
-	<title>f oo w d  - in progress - <!--#echo var="page" --></title>
+  <title>f oo w d  - in progress - <!--#echo var="page" --></title>
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/foowd.css">
@@ -23,11 +23,11 @@
   <script type="text/javascript" src="js/foowd_generics.js"></script>
   <script type="text/javascript" src="js/access.js"></script>
   <script type="text/javascript" src="js/carrello.js"></script>
-	<script type="text/javascript" src="prodotti/prodotti.js"></script>
+  <script type="text/javascript" src="prodotti/prodotti.js"></script>
   <script type="text/javascript">
   //**una decina di prodotti --- meglio se da file esterno --- per ora json
   //var prodotti= []; // segnaposto
-	
+  
   var carrello = new Carrello(prodotti);
   if ("cart" in par) {
     carrello.fromPar(par.cart);
@@ -95,8 +95,8 @@
         this['search']=dati;
       });
   }
-	</script>
-	<script type="text/javascript" src="js/minicat.js"></script>
+  </script>
+  <script type="text/javascript" src="js/minicat.js"></script>
 </head>
 <body onload="init();">
 <!--#include virtual="header_foowd.shtml" -->

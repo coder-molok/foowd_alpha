@@ -7,9 +7,9 @@
 - euro (importo) restituisce una stringa formattata come prezzo.
 */
 var foowd = {
-  'dbhost': 'http://localhost/foowd_alpha/service/' 
   //'http://www.melaricosa.eu/'
   //http://localhost:8080/melaricosa.eu/
+  'dbhost': 'http://localhost:8080/foowd/service/'
 };
 
 /** oggetto di controllo della maschera di attesa
