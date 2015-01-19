@@ -8,3 +8,6 @@ i quali portanno in un secondo tempo confermare l'ordine (il capo gruppo) e rice
 scelti (sempre il capogruppo).
 
 
+
+
+
