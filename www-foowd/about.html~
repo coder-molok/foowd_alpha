@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>su di noi</title>
+    <meta name="keywords" content="agricoltura, cibo, e-commerce alimentare, food, foowd, gruppi d'acquisto, prodotti agricoli, startcup milano lombardia 2013" />
+    <meta name="description" content="Il sito dell'azienda foowd. Qui trovate la descrizione dei servizi offerti, la nostra struttura aziendale e la possibilità di iscrivervi alla piattaforma." />
+    <link rel="shortcut icon" href="img/foowd_icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="img/foowd_icon.png" type="image/png" />
+    <meta name="viewport" content="minimum-scale=0.40, maximum-scale=2" />
+    <link href="css/foowd_style.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="lib/switch.js"></script>
+    <script type="text/javascript" src="lib/positer.js"></script>
+    <script type="text/javascript" src="lib/initial.js"></script>
+</head>
+<body onload="init();">
+    <div class="content-wrapper">
+        <div title="foowd_logo" class="logo">
+            <a href="index.html">
+                <img src="img/foowd_logo_.png" alt="foowd logo" class="logo">
+            </a>
+        </div>
+        <table class="menu-tile" id="menu">
+            <tr>
+                <td><a href="index.html">foowd</a></td>
+                <td class="switch" switched="servizi" switchon="mouseenter" switchoff="mouseleave" initialSwitch="off">
+                  <a href="services.html">servizi</a></td>
+                <td><a href="international.html">international</a></td>
+                <td class="switch selected" switched="sudinoi" switchon="mouseenter" switchoff="mouseleave" initialSwitch="off">
+                  <a href="#">su di noi</a></td>
+                <td><a href="partecipa.html">partecipa</a></td>
+            </tr>
+        </table>
+        <table class="menu-tile menu-cascade switchable" id="submenu-servizi" switch="servizi" switchAfter="0 3000">
+            <tr>
+                <td><a href="partecipa.html">partecipa</a></td>
+            </tr>
+        </table>
+        <table class="menu-tile menu-cascade switchable" id="submenu-sudinoi" switch="sudinoi" switchAfter="0 3000">
+            <tr>
+                <td><a href="etica.html">etica</a></td>
+            </tr>
+            <tr>
+                <td><a href="staff.html">team</a></td>
+            </tr>
+            <tr>
+                <td><a href="altro.html">altro</a></td>
+            </tr>
+        </table>
+        <table class="content-grid" id="corpo">
+            <tr>
+                <td class="content-white menu-tile">
+                    <a href="etica.html">
+                        <img alt="carote" class="image-foto image-about" 
+                        src="img/foto_carote.jpg">
+                        <h4>Etica</h4>
+                        <p>
+                            Qui trovate alcuni principi che ci rappresentano e 
+                            spiegano come vogliamo apportare beneficio all'intero 
+                            sistema e creare nuove opportunità di mercato.
+                        </p>
+                    </a>
+                </td>
+                <td class="content-white menu-tile">
+                    <a href="staff.html">
+                        <img alt="mirtilli, more e lamponi" class="image-foto image-about" 
+                        src="img/foto_fruttibosco.jpg">
+                        <h4>Team</h4>
+                        <p>
+                            Il nostro progetto vive della passione e della professionalità 
+                            del nostro team di fondatori e di tutti i collaboratori 
+                            che stanno cambiando il futuro del mercato alimentare
+                        </p>
+                    </a>
+                </td>
+                <td class="content-white menu-tile">
+                    <a href="altro.html">
+                        <img alt="pomodori rossi e verdi" class="image-foto image-about"
+                        src="img/foto_pomodori.jpg">
+                        <h4>Altre informazioni</h4>
+                        <p>
+                            Vuoi accedere alla nostra rassegna stampa, rivedere le prime 
+                            presentazioni di <strong>foowd</strong> o recuperare materiale? 
+                            Questa sezione è quella che fa per te
+                        </p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    
+    
+    
+        <table class="content-grid content-sections" id="piede">
+            <tr>
+                <td class="content-text">
+                    <h6>contatti</h6>
+                    <dl>
+                        <dt><a href="mailto:info@foowd.it?subject=Marketing [tramite sito]">
+                            Marketing</a></dt>
+                        <dd>339 3925569</dd>
+                        <dt><a href="mailto:produttori@foowd.it?subject=Produttori [tramite sito]">
+                            Commerciale</a></dt>
+                        <dd>347 2308263</dd>
+                        <dt><a 
+                                href="mailto:amministrazione@foowd.it?subject=Amministrazione [tramite sito]">
+                            Amministrazione</a></dt>
+                        <dd>347 6178766</dd>
+                        <dt><a href="mailto:foowd.info@gmail.com?subject=Mail da sito www.foowd.it" 
+                                style="font-weight:bold;margin-top:5px;">info@foowd.it</a></dt>
+                        <dd></dd>
+                    </dl>
+                </td>
+                <td class="content-text">
+                    <h6>seguici</h6>
+                    <a target="_blank" href="https://www.facebook.com/foowd">
+                        <img src="img/fblogo.png" alt="facebook" style="width: 40px; height: 40px;">
+                    </a>
+                    <a target="_blank" href="https://twitter.com/FoowdITA">
+                        <img src="img/twlogo.png" alt="twitter" style="width: 40px; height: 40px;">
+                    </a>
+                </td>
+                <td class="content-text">
+                    <h6>produttori</h6>
+                    <p>
+                        <a target="_blank" href="https://www.smore.com/pcm5x">Clicca qui per scoprire come funziona</a>
+                    </p>
+                </td>
+                <td class="content-text">
+                    <h6>investor area</h6>
+                    <p>
+                        <a href="investors.html">Click here to find out investment opportunities in foowd company</a>
+                    </p>
+                </td>
+                <td class="content-text">
+                    <h6>disclaimer</h6>
+                    <p class="privacyeuso">
+                        <a href="disclaimer.html">
+                            Termini d'uso e Privacy
+                        </a>
+                    </p>
+                    <p>
+                        &copy; 2014 by <strong>foowd srl</strong>
+                        | Viale Caldara 24/A 20122 - Milano
+                    </p>
+                    <p>
+                        foowdsrl@pec.it |
+                        P.I/C.F. 08666400968 |
+                        Cap. sociale 10.000€ |
+                        R.E.A. di Milano - 2041086
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

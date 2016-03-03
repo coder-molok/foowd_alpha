@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>servizi offerti</title>
+    <meta name="keywords" content="agricoltura, cibo, e-commerce alimentare, food, foowd, gruppi d'acquisto, prodotti agricoli, startcup milano lombardia 2013" />
+    <meta name="description" content="Il sito dell'azienda foowd. Qui trovate la descrizione dei servizi offerti, la nostra struttura aziendale e la possibilit&agrave; di iscrivervi alla piattaforma." />
+    <link rel="shortcut icon" href="img/foowd_icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="img/foowd_icon.png" type="image/png" />
+    <meta name="viewport" content="minimum-scale=0.40, maximum-scale=2" />
+    <link href="css/foowd_style.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="lib/switch.js"></script>
+    <script type="text/javascript" src="lib/positer.js"></script>
+    <script type="text/javascript" src="lib/initial.js"></script>
+</head>
+<body onload="init();">
+    <div class="content-wrapper">
+    <div title="foowd_logo" class="logo">
+        <a href="index.html">
+            <img src="img/foowd_logo_.png" alt="foowd logo" class="logo">
+        </a>
+    </div>
+    <table class="menu-tile" id="menu">
+        <tr>
+            <td><a href="index.html">foowd</a></td>
+            <td class="switch selected" switched="servizi" switchon="mouseenter" switchoff="mouseleave" initialSwitch="off">
+              <a href="#">servizi</a></td>
+            <td><a href="international.html">international</a></td>
+            <td class="switch" switched="sudinoi" switchon="mouseenter" switchoff="mouseleave" initialSwitch="off">
+              <a href="about.html">su di noi</a></td>
+            <td><a href="partecipa.html">partecipa</a></td>
+        </tr>
+    </table>
+    <table class="menu-tile menu-cascade switchable" id="submenu-servizi" switch="servizi" switchAfter="0 3000">
+        <tr>
+            <td><a href="partecipa.html">partecipa</a></td>
+        </tr>
+    </table>
+    <table class="menu-tile menu-cascade switchable" id="submenu-sudinoi" switch="sudinoi" switchAfter="0 3000">
+        <tr>
+            <td><a href="etica.html">etica</a></td>
+        </tr>
+        <tr>
+            <td><a href="staff.html">team</a></td>
+        </tr>
+        <tr>
+            <td><a href="altro.html">altro</a></td>
+        </tr>
+    </table>
+    <table class="content-grid fit_3_column" id="corpo">
+        <tr>
+            <td colspan="3" class="content-text">
+                <h3>il futuro del mercato alimentare</h3>
+                <p>
+                    <strong>foowd</strong> (si pronuncia <em>/fu:d/</em>, come "food") 
+                    &egrave; una piattaforma online dove produttori e consumatori 
+                    possono incontrarsi e condurre compravendite senza intermediari, 
+                    tramite l'innovativa modalit&agrave; dei <em><strong>gruppi di acquisto rapidi</strong></em>.
+                </p>
+                <p>
+                    Vogliamo fare dell'acquisto di gruppo una 
+                    pratica accessibile a tutti, ideale per chi vuole qualit&agrave;, scelta e 
+                    trasparenza, pur non stravolgendo le proprie abitudini di acquisto.
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                    Con la versione attuale (<strong>0.5</strong>)
+                    &egrave; possibile coordinarsi rapidamente con i propri conoscenti, per 
+                    raggiungere un quantitativo di merce minima e acquistare direttamente 
+                    dal produttore.
+                </p>
+                <p>
+                    La soluzione attuale vuole fornire un'esperienza nuova, 
+                    pur non includendo tutte le caratteristiche della versione definitiva.
+                </p>
+                <p>
+                    Nei prossimi mesi saranno rilasciate diverse funzionalit&agrave; 
+                    in modo da offrire un'esperienza completa, comoda e flessibile:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="funz_vetrina" img="img/funz_vetrina.jpg" class="functionalities">
+                    <h3>Vetrina</h3>
+                    <p class="funz_text">
+                        Diamo spazio ad un'ampia gamma di prodotti, 
+                        senza limitare la scelta per il consumatore. 
+                        I prodotti si possono trovare grazie a molteplici modalit&agrave; di ricerca 
+                        o sfogliando un mercato virtuale aggiornato di continuo.
+                        <br />&nbsp;<br />
+                        La visibilit&agrave; &egrave; garantita a tutti cos&igrave; come il supporto 
+                        per valorizzare al meglio la propria offerta.
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div id="funz_pagamento" img="img/funz_pagamento.jpg" class="functionalities">
+                    <h3>Pagamento</h3>
+                    <p class="funz_text">
+                        Forniamo soluzioni complete per effettuare pagamenti elettronici, 
+                        in modo da ridurre al minimo i costi accessori dovuti a banche 
+                        o intermediari finanziari.
+                        <br />&nbsp;<br />
+                        I prezzi sono chiari e trasparenti. Ognuno paga la propria parte 
+                        e così si evitano passaggi scomodi di denaro.
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div id="funz_spedizioni" img="img/funz_spedizioni.jpg" class="functionalities">
+                    <h3>Spedizioni</h3>
+                    <p class="funz_text">
+                        Stiamo stringendo accordi con i maggiori corrieri su territorio nazionale e non. 
+                        Offriamo prezzi agevolati che saranno divisi tra i membri del gruppo, 
+                        così da rendere trascurabile la spedizione all'interno della spesa.
+                        <br />&nbsp;<br />
+                        La distribuzione finale tra i membri del gruppo avviene secondo i mezzi 
+                        che i consumatori ritengono opportuni, nell'ottica di un "ultimo miglio" 
+                        all'insegna del risparmio.
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="funz_feedback" img="img/funz_feedback.jpg" class="functionalities">
+                    <h3>Feedback</h3>
+                    <p class="funz_text">
+                        Produttore e consumatore comunicano in maniera diretta; con foowd la filiera
+                        &egrave; cortissima ed &egrave; possibile scambiare pareri, 
+                        consigli ed esperienze in maniera sicura.
+                        <br />&nbsp;<br />
+                        Un sistema di feedback avanzato valorizza la reputazione online 
+                        e pone al riparo da diffamazioni o comportamenti scorretti.
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div id="funz_app" img="img/funz_app.jpg" class="functionalities">
+                    <h3>App</h3>
+                    <p class="funz_text">
+                        La versione mobile includer&agrave; interessanti funzionalit&agrave; 
+                        di condivisione e la possibilit&agrave; di rimanere costantemente 
+                        aggiornati sullo stato delle proprie vendite o acquisti.
+                        <br />&nbsp;<br />
+                        Potrai facilmente introdurre su foowd nuovi prodotti e segnalare 
+                        scoperte culinarie fatte in vacanza o navigando in rete.
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div id="funz_comunita" img="img/funz_comunita.jpg" class="functionalities">
+                    <h3>Comunit&agrave;</h3>
+                    <p class="funz_text">
+                        L'acquisto e la vendita su foowd permettono di condividere 
+                        il calore dei rapporti umani tipici dei mercatini sotto casa 
+                        su scala molto pi&ugrave; ampia.
+                        <br />&nbsp;<br />
+                        Creiamo una comunit&agrave; online viva nello scoprire, 
+                        gustare e supportare la ricchezza enogastronomica dell'intero Paese.
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table class="content-grid content-sections" id="piede">
+        <tr>
+            <td class="content-text">
+                <h6>contatti</h6>
+                <dl>
+                    <dt><a href="mailto:info@foowd.it?subject=Marketing [tramite sito]">
+                        Marketing</a></dt>
+                    <dd>339 3925569</dd>
+                    <dt><a href="mailto:produttori@foowd.it?subject=Produttori [tramite sito]">
+                        Commerciale</a></dt>
+                    <dd>347 2308263</dd>
+                    <dt><a 
+                            href="mailto:amministrazione@foowd.it?subject=Amministrazione [tramite sito]">
+                        Amministrazione</a></dt>
+                    <dd>347 6178766</dd>
+                    <dt><a href="mailto:foowd.info@gmail.com?subject=Mail da sito www.foowd.it" 
+                            style="font-weight:bold;margin-top:5px;">info@foowd.it</a></dt>
+                    <dd></dd>
+                </dl>
+            </td>
+            <td class="content-text">
+                <h6>seguici</h6>
+                <a target="_blank" href="https://www.facebook.com/foowd">
+                    <img src="img/fblogo.png" alt="facebook" style="width: 40px; height: 40px;">
+                </a>
+                <a target="_blank" href="https://twitter.com/FoowdITA">
+                    <img src="img/twlogo.png" alt="twitter" style="width: 40px; height: 40px;">
+                </a>
+            </td>
+            <td class="content-text">
+                <h6>produttori</h6>
+                <p>
+                    <a target="_blank" href="https://www.smore.com/pcm5x">Clicca qui per scoprire come funziona</a>
+                </p>
+            </td>
+            <td class="content-text">
+                <h6>investor area</h6>
+                <p>
+                    <a href="investors.html">Click here to find out investment opportunities in foowd company</a>
+                </p>
+            </td>
+            <td class="content-text">
+                <h6>disclaimer</h6>
+                <p class="privacyeuso">
+                    <a href="disclaimer.html">
+                        Termini d'uso e Privacy
+                    </a>
+                </p>
+                <p>
+                    &copy; 2014 by <strong>foowd srl</strong>
+                    | Viale Caldara 24/A 20122 - Milano
+                </p>
+                <p>
+                    foowdsrl@pec.it |
+                    P.I/C.F. 08666400968 |
+                    Cap. sociale 10.000€ |
+                    R.E.A. di Milano - 2041086
+                </p>
+            </td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>
