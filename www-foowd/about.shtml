@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!--#set var="cpage" value="about" -->
+<!--#include virtual="header.inc.shtml" -->
+<body onload="init();">
+    <div class="content-wrapper">
+    <!--#include virtual="menu.inc.shtml" -->
+    <table class="content-grid" id="corpo">
+        <tr>
+            <td class="content-white menu-tile">
+                <a href="etica.html">
+                    <img alt="carote" class="image-foto image-about" 
+                    src="img/foto_carote.jpg">
+                    <h4>Etica</h4>
+                    <p>
+                        Qui trovate alcuni principi che ci rappresentano e 
+                        spiegano come vogliamo apportare beneficio all'intero 
+                        sistema e creare nuove opportunità di mercato.
+                    </p>
+                </a>
+            </td>
+            <td class="content-white menu-tile">
+                <a href="staff.html">
+                    <img alt="mirtilli, more e lamponi" class="image-foto image-about" 
+                    src="img/foto_fruttibosco.jpg">
+                    <h4>Team</h4>
+                    <p>
+                        Il nostro progetto vive della passione e della professionalità 
+                        del nostro team di fondatori e di tutti i collaboratori 
+                        che stanno cambiando il futuro del mercato alimentare
+                    </p>
+                </a>
+            </td>
+            <td class="content-white menu-tile">
+                <a href="altro.html">
+                    <img alt="pomodori rossi e verdi" class="image-foto image-about"
+                    src="img/foto_pomodori.jpg">
+                    <h4>Altre informazioni</h4>
+                    <p>
+                        Vuoi accedere alla nostra rassegna stampa, rivedere le prime 
+                        presentazioni di <strong>foowd</strong> o recuperare materiale? 
+                        Questa sezione è quella che fa per te
+                    </p>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <!--#include virtual="footer.inc.shtml" -->
+    </div>
+</body>
+</html>

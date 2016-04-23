@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<!--#set var="cpage" value="home" -->
+<!--#include virtual="header.inc.shtml" -->
+<body onload="init();">
+    <div class="content-wrapper">
+    <!--#include virtual="menu.inc.shtml" -->
+    <table class="content-grid fit_3_column" id="corpo">
+        <tr>
+            <td rowspan="3">
+                <img class="image-foto image-big" src="img/fotoProdottiItaliani.jpg" 
+                     alt="foowd offre ottimi prodotti italiani">
+            </td>
+            <td style="text-align: center;">
+                <img class="image-foto image-small" src="img/fotoVite.jpg" 
+                     alt="i nostri produttori coltivano con passione">
+            </td>
+            <td rowspan="3">
+                <div class="content-bigtext content-home">
+                    <h3>Il progetto</h3>
+                    <p style="line-height: 1.4em;">
+                        <span style="line-height:1.4em;">
+                            <strong>foowd</strong>
+                            è un'innovativa piattaforma per gli acquisti alimentari, 
+                            che permette la creazione <em>autonoma</em> di 
+                            <strong>gruppi d'acquisto rapidi</strong>
+                            , senza bisogno di magazzino o organizzazione continua.
+                        </span>
+                    </p>
+                    <p style="line-height: 1.4em; font-size: 10px;">&nbsp;</p>
+                    <p style="line-height: 1.4em;">
+                        <span style="line-height:1.4em;">Con 
+                            <strong>foowd </strong>
+                            compri di volta in volta quel che desideri con parenti ed amici 
+                        </span>
+                        direttamente dai produttori
+                        <span style="line-height:1.4em;">, abbattendo i costi di spedizione e logistica.</span>
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div style="height: 30px;width: 100%;text-align: center;">
+                    <a href="partecipa.html">
+                        <div class="content-circle">
+                            <h5>Partecipa <br>in esclusiva: <br>clicca qui</h5>
+                        </div>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: bottom;text-align: center;">
+                <img class="image-foto image-small" src="img/fotoFormaggi.jpg" 
+                     alt="le lavorazioni sono eseguite come da tradizione">
+            </td>
+        </tr>
+    </table>
+    <!--#include virtual="footer.inc.shtml" -->
+    </div>
+</body>
+</html>

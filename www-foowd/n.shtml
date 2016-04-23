@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-<!--#set var="cpage" value="news" -->
+<!--#set var="cpage" value="bombshell" -->
 <!--#include virtual="header.inc.shtml" -->
 <body onload="init();">
     <div class="content-wrapper">
     <!--#include virtual="menu.inc.shtml" -->
     <div class="content-grid" id="corpo">
-        <!--#include file="news/listaNews.shtml" -->
+        <script type="text/javascript">
+            insertNews();
+        </script>
     </div>
     <!--#include virtual="footer.inc.shtml" -->
     </div>

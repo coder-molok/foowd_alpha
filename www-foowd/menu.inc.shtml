@@ -1,0 +1,44 @@
+<!-- menu + -->
+<div title="foowd_logo" class="logo">
+    <a href="<!--#echo var="menu_home" -->">
+        <img src="img/foowd_logo_.png" alt="foowd logo" class="logo">
+    </a>
+</div>
+<table class="menu-tile" id="menu">
+    <tr>
+        <td <!--#if expr="$menu_home='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_home" -->">foowd</a></td>
+        <td class="switch" switched="servizi" switchon="mouseenter" switchoff="mouseleave" 
+            initialSwitch="off" <!--#if expr="$menu_services='#'" -->class="selected"<!--#endif -->>
+          <a href="<!--#echo var="menu_services" -->">servizi</a></td>
+        <td <!--#if expr="$menu_international='#'" -->class="selected"<!--#endif -->><a href="<!--#echo var="menu_international" -->">international</a></td>
+        <td class="switch" switched="sudinoi" switchon="mouseenter" switchoff="mouseleave" 
+            initialSwitch="off" <!--#if expr="$menu_about='#'" -->class="selected"<!--#endif -->>
+          <a href="<!--#echo var="menu_about" -->">su di noi</a></td>
+        <td <!--#if expr="$menu_news='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_news" -->">news</a></td>
+    </tr>
+</table>
+<table class="menu-tile menu-cascade switchable" 
+       id="submenu-servizi" switch="servizi" switchAfter="0 3000">
+    <tr>
+        <td <!--#if expr="$menu_partecipa='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_partecipa" -->">partecipa</a></td>
+    </tr>
+</table>
+<table class="menu-tile menu-cascade switchable" 
+       id="submenu-sudinoi" switch="sudinoi" switchAfter="0 3000">
+    <tr>
+        <td <!--#if expr="$menu_etica='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_etica" -->">etica</a></td>
+    </tr>
+    <tr>
+        <td <!--#if expr="$menu_staff='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_staff" -->">team</a></td>
+    </tr>
+    <tr>
+        <td <!--#if expr="$menu_altro='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_altro" -->">altro</a></td>
+    </tr>
+</table>
+<!-- menu - -->

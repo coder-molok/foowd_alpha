@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!--#set var="cpage" value="altro" -->
+<!--#include virtual="header.inc.shtml" -->
+<body onload="init();">
+    <div class="content-wrapper">
+    <!--#include virtual="menu.inc.shtml" -->
+    <table class="content-grid" id="corpo"> 
+        <tr>
+            <td class="content-trasp">
+                <img alt="Foowd vince la Startcup Milano 2013 - Cat. Agrofood" class="image-foto"
+                     src="http://static.wixstatic.com/media/8b7fe7_3a798fe8a42b48df84f872980df5fce6.jpg_srz_p_230_292_75_22_0.50_1.20_0.00_jpg_srz">
+            </td>
+            <td class="content-text">
+                <h3>Materiali extra</h3>
+                <p> Qui è presente una selezione in ordine cronologico di materiali
+                    aggiuntivi relativi a foowd: interviste, presentazioni, nostri 
+                    materiali ad uso stampa, video e quant'altro. Siamo sempre 
+                    disponibili all'indirizzo <strong>info@foowd.it</strong>
+                    per ulteriori informazioni, chiarimenti o richieste.
+                </p>
+                <p>&nbsp;</p>
+                <ol>
+                    <li>
+                        <p>
+                            <em><strong class="und"><a href="http://www.tiny.cc/foowdkit" target="_blank">
+                            [press media kit]</a> - </strong>
+                            il nostro press media kit (in aggiornamento). Contiene logo in differenti formati, 
+                            descrizione della società e del team, informazioni generali e dettagli di contatto.
+                            </em>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong class="und"><a href="https://docs.google.com/file/d/0B5mjFdPiXNRFcnloOGJrZ3RFdk0/edit" target="_blank">
+                            [materiale] foowd: aggregare la domanda per potenziare l'offerta</a> - </strong>
+                            presentazione dell'intervento tenuto da Federico Danelli durante l'evento 
+                            "Fattorie Digitali" tenuto da Veneto Agricoltura sul tema dell'efficentamento 
+                            delle reti di distribuzione e sull'approccio di foowd.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong class="und"><a href="http://www.lasestina.unimi.it/wp-content/themes/max/images/2013/12/MM-novembre-2013.pdf" target="_blank">
+                            [articolo - a pag.30] foowd: la filiera si fa cortissima</a> - </strong>
+                            articolo e intervista di Andrea Tornago a Tommaso Danelli per "MM", 
+                            la rivista dell'Università Statale di Milano.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong class="und"><a href="http://it.startupbusiness.it/news/finale-startcup-milano-lombardia-premiate-sei-startup" target="_blank">
+                            [articolo] Finale StartCup Milano Lombardia, premiate sei startup</a> - </strong>
+                            articolo di Startup Business sulla premiazione alla StarCup Milano.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong class="und"><a href="http://www.ilsole24ore.com/art/notizie/2013-10-26/start-up--foowd-%E2%80%93-mercato-alimentare-online-182812.shtml?uuid=ABJ23XZ" target="_blank">
+                            [notizia] foowd: il mercato alimentare online</a> - </strong>
+                            notizia de "Il Sole 24 Ore" su Foowd.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong class="und"><a href="http://portalevideo.unimi.it/?mid=328&amp;cid=1368&amp;play=true" target="_blank">
+                            [video] Startcup Milano 2013</a> - </strong>
+                            l'intero evento di presentazione dei pitch per le aziende finaliste. 
+                            A partire dal minuto 14' circa, il nostro Product Manager Tommaso Danelli 
+                            tiene la primissima presentazione al pubblico di foowd.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong class="und"><a href="http://www.pnicube.it/wp-content/uploads/brochurePNI2013.pdf" target="_blank">
+                            [documentazione] Finalisti al PNI 2013</a> - </strong>
+                            l'elenco di tutte le startup partecipanti ai Premi per l'Innovazione 2013, 
+                            tra cui anche Foowd
+                        </p>
+                    </li>
+                </ol>
+            </td>
+        </tr>
+    </table>
+    <!--#include virtual="footer.inc.shtml" -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!-- footer + -->
+<table class="content-grid content-sections" id="piede">
+    <tr>
+        <td class="content-text">
+            <a name="contatti" />
+            <h6>contatti</h6>
+            <dl>
+                <dt><a href="mailto:info@foowd.it?subject=Marketing [tramite sito]">
+                    Marketing</a></dt>
+                <dd>339 3925569</dd>
+                <dt><a href="mailto:produttori@foowd.it?subject=Produttori [tramite sito]">
+                    Commerciale</a></dt>
+                <dd>347 2308263</dd>
+                <dt><a href="mailto:amministrazione@foowd.it?subject=Amministrazione [tramite sito]">
+                    Amministrazione</a></dt>
+                <dd>347 6178766</dd>
+                <dt><a href="mailto:foowd.info@gmail.com?subject=Mail da sito www.foowd.it" 
+                        style="font-weight:bold;margin-top:5px;">info@foowd.it</a></dt>
+                <dd></dd>
+            </dl>
+        </td>
+        <td class="content-text">
+            <h6>seguici</h6>
+            <a target="_blank" href="https://www.facebook.com/foowd">
+                <img src="img/fblogo.png" alt="facebook" style="width: 40px; height: 40px;">
+            </a>
+            <a target="_blank" href="https://twitter.com/FoowdITA">
+                <img src="img/twlogo.png" alt="twitter" style="width: 40px; height: 40px;">
+            </a>
+        </td>
+        <td class="content-text">
+            <h6>produttori</h6>
+            <p>
+                <a target="_blank" href="https://www.smore.com/pcm5x">Clicca qui per scoprire come funziona</a>
+            </p>
+        </td>
+        <td class="content-text">
+            <h6>investor area</h6>
+            <p>
+                <a href="<!--#echo var="menu_investors" -->">Click here to find out investment opportunities in foowd company</a>
+            </p>
+        </td>
+        <td class="content-text">
+            <h6>disclaimer</h6>
+            <p class="privacyeuso">
+                <a href="<!--#echo var="menu_disclaimer" -->">
+                    Termini d'uso e Privacy
+                </a>
+            </p>
+            <p>
+                &copy; 2014 by <strong>foowd srl</strong>
+                | Viale Forlanini 23 20134 - Milano
+            </p>
+            <p>
+                foowdsrl@pec.it |
+                P.I/C.F. 08666400968 |
+                Cap. sociale 10.000€ |
+                R.E.A. di Milano - 2041086
+            </p>
+        </td>
+    </tr>
+</table>
+<!-- footer - -->

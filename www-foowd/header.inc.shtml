@@ -1,0 +1,35 @@
+<!-- header + -->
+<head>
+    <meta charset="utf-8"/>
+    <title>foowd</title>
+    <meta name="keywords" content="agricoltura, cibo, e-commerce alimentare, food, foowd, gruppi d'acquisto, prodotti agricoli, startcup milano lombardia 2013" />
+    <meta name="description" content="Il sito dell'azienda foowd. Qui trovate la descrizione dei servizi offerti, la nostra struttura aziendale e la possibilità di iscrivervi alla piattaforma." />
+    <link rel="shortcut icon" href="img/foowd_icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="img/foowd_icon.png" type="image/png" />
+    <meta name="viewport" content="minimum-scale=0.40, maximum-scale=2" />
+    <link href="css/foowd_style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="lib/switch.js"></script>
+    <script type="text/javascript" src="lib/positer.js"></script>
+    <script type="text/javascript" src="lib/initial.js"></script>
+    <!--#if expr="$cpage='partecipa'" -->
+    <script type="text/javascript" src="lib/partecipa.js"></script>
+    <!--#elif expr="$cpage='bombshell'" -->
+    <script type="text/javascript" src="lib/ajax.js"></script>
+    <script type="text/javascript" src="lib/news.js"></script>
+    <!--#endif -->
+</head>
+<!--#set var="menu_home" value="index.shtml" -->
+<!--#set var="menu_about" value="about.shtml" -->
+<!--#set var="menu_altro" value="altro.shtml" -->
+<!--#set var="menu_disclaimer" value="disclaimer.shtml" -->
+<!--#set var="menu_etica" value="etica.shtml" -->
+<!--#set var="menu_international" value="international.shtml" -->
+<!--#set var="menu_investors" value="investors.shtml" -->
+<!--#set var="menu_news" value="news.shtml" -->
+<!--#set var="menu_bombshell" value="n.shtml" -->
+<!--#set var="menu_partecipa" value="partecipa.shtml" -->
+<!--#set var="menu_services" value="services.shtml" -->
+<!--#set var="menu_staff" value="staff.shtml" -->
+
+<!--#set var="menu_$cpage" value="#" -->
+<!-- header - -->

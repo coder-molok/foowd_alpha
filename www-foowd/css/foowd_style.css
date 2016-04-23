@@ -297,6 +297,18 @@ table#piede a:hover {
     font-size: 12px;
     margin-bottom: 5px;
 }
+
+table#section-produttore td {
+    width: 30%;
+    font-size: 14px;
+}
+table#section-produttore a {
+    font-size: 14px;
+    text-decoration: underline;
+    color: #4D4D4D;
+    cursor: pointer;
+}
+
 div.content-circle {
     position: relative;
     width: 200px;
