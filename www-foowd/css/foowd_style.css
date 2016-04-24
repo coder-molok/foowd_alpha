@@ -3,6 +3,15 @@
  **  stile vetrina
 \**/
 
+@font-face{
+    font-family: AkkuratBold;
+    src: url("fonts/AkkuratBold.otf") format("opentype");
+}
+@font-face{
+    font-family: AkkuratRegular;
+    src: url("fonts/AkkuratRegular.otf") format("opentype");
+}
+
 a,abbr,acronym,address,applet,b,big,blockquote,body,caption,center,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,form,h1,h2,h3,h4,h5,h6,html,i,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,u,ul,var {
     margin:0;
     padding:0;
@@ -10,7 +19,7 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,caption,center,cite,code,dd,
     outline:0;
     vertical-align:baseline;
     background:0 0;
-    font-family:Helvetica, Arial, sans-serif;
+    font-family:AkkuratRegular, Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -21,15 +30,10 @@ body {
     font-size:16px;
     height:100%;
     width: 100%;
-    background-attachment: fixed;
-/*    background-color: #ffffff;*/
-    background-image: url(../img/bkgrnd3.jpg);
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-color: #fff;
 }
 
-body[device=mobile] {
+body[device=touch] {
     overflow-x:hidden;
     overflow-y:scroll;
 }
@@ -109,7 +113,7 @@ article h4 {
 
 .menu-tile {
     background-color: #ffffff;
-    box-shadow: 0px 0px 3px -1px #2528DC;
+    box-shadow: 0px 5px 10px #e3cca1;
     z-index: 9;
 }
 .menu-tile tr {
@@ -118,12 +122,23 @@ article h4 {
 .menu-tile td {
     text-align: center;
     vertical-align: middle;
+    transition: background-color 0.5s;
 }
 .menu-tile .selected {
-    background-color: #E63212;
+    background-color: #bed25a;
+}
+.menu-tile td:hover {
+    background-color: #000;
+    transition: background-color 0.5s;
+}
+.menu-tile td:hover a {
+    color: #fff;
+    transition: color 0.4s;
 }
 
 .menu-cascade {
+    position: absolute;
+    top: 182px;
     width: 18%;
     z-index: 10;
 }
@@ -133,8 +148,6 @@ article h4 {
 }
 
 .content-wrapper {
-    width: 90%;
-    margin: 5%;
 }
 
 .content-grid {
@@ -221,7 +234,13 @@ div.logo {
     left: 0px;
     top: 2em;
     width: 100%;
-    text-align: center;
+    padding: 20px 0 20px 5%;
+    background-color: #e6dcbe;
+    box-shadow: 0px -3px 15px #b1996a;
+    font-size: 60pt;
+    font-family: AkkuratBold;
+    font-weight: bold;
+    letter-spacing: -0.1em;
 }
 
 img.logo {
@@ -242,8 +261,8 @@ div.column {
 }
 
 table#menu {
-    width: 100%;
-    margin: 5% 0;
+    width: 90%;
+    margin: 2em 5%;
 }
 table#menu td {
     width: 20%;
@@ -258,7 +277,8 @@ table#submenu-sudinoi {
 }
 
 table#corpo {
-    width: 100%;
+    width: 90%;
+    margin: 0 5%;
 }
 table#corpo td {
     vertical-align: top;
@@ -268,6 +288,8 @@ table#piede {
     width: 100%;
     min-height: 124px;
     margin-top: 5%;
+    margin-bottom: 5px;
+    box-shadow: 0 0 7px #bed25a;
 }
 table#piede td {
     width: 20%;

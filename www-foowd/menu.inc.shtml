@@ -1,19 +1,22 @@
 <!-- menu + -->
 <div title="foowd_logo" class="logo">
     <a href="<!--#echo var="menu_home" -->">
-        <img src="img/foowd_logo_.png" alt="foowd logo" class="logo">
+        foowd_
     </a>
 </div>
 <table class="menu-tile" id="menu">
     <tr>
         <td <!--#if expr="$menu_home='#'" -->class="selected"<!--#endif -->>
-            <a href="<!--#echo var="menu_home" -->">foowd</a></td>
-        <td class="switch" switched="servizi" switchon="mouseenter" switchoff="mouseleave" 
-            initialSwitch="off" <!--#if expr="$menu_services='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_home" -->">foowd_</a></td>
+        <td class="switch <!--#if expr="$menu_services='#'" -->selected<!--#endif -->" 
+            switched="servizi" switchon="mouseenter" switchoff="mouseleave" 
+            initialSwitch="off">
           <a href="<!--#echo var="menu_services" -->">servizi</a></td>
-        <td <!--#if expr="$menu_international='#'" -->class="selected"<!--#endif -->><a href="<!--#echo var="menu_international" -->">international</a></td>
-        <td class="switch" switched="sudinoi" switchon="mouseenter" switchoff="mouseleave" 
-            initialSwitch="off" <!--#if expr="$menu_about='#'" -->class="selected"<!--#endif -->>
+        <td <!--#if expr="$menu_international='#'" -->class="selected"<!--#endif -->>
+            <a href="<!--#echo var="menu_international" -->">international</a></td>
+        <td class="switch <!--#if expr="$menu_about='#'" -->selected<!--#endif -->" 
+            switched="sudinoi" switchon="mouseenter" switchoff="mouseleave" 
+            initialSwitch="off">
           <a href="<!--#echo var="menu_about" -->">su di noi</a></td>
         <td <!--#if expr="$menu_news='#'" -->class="selected"<!--#endif -->>
             <a href="<!--#echo var="menu_news" -->">news</a></td>
