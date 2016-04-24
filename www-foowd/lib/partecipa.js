@@ -1,5 +1,5 @@
 /*
-    funzione di invio mail, pagina Partecipa.html
+    funzione di invio mail, pagina Partecipa.shtml
 */
 
 function sendMail(container) {

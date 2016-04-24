@@ -8,7 +8,7 @@
     <table class="content-grid" id="corpo">
         <tr>
             <td class="content-white menu-tile">
-                <a href="etica.html">
+                <a href="<!--#echo var="menu_etica" -->">
                     <img alt="carote" class="image-foto image-about" 
                     src="img/foto_carote.jpg">
                     <h4>Etica</h4>
@@ -20,7 +20,7 @@
                 </a>
             </td>
             <td class="content-white menu-tile">
-                <a href="staff.html">
+                <a href="<!--#echo var="menu_staff" -->">
                     <img alt="mirtilli, more e lamponi" class="image-foto image-about" 
                     src="img/foto_fruttibosco.jpg">
                     <h4>Team</h4>
@@ -32,7 +32,7 @@
                 </a>
             </td>
             <td class="content-white menu-tile">
-                <a href="altro.html">
+                <a href="<!--#echo var="menu_altro" -->">
                     <img alt="pomodori rossi e verdi" class="image-foto image-about"
                     src="img/foto_pomodori.jpg">
                     <h4>Altre informazioni</h4>

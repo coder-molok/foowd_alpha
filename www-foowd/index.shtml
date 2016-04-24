@@ -42,7 +42,7 @@
         <tr>
             <td>
                 <div style="height: 30px;width: 100%;text-align: center;">
-                    <a href="partecipa.html">
+                    <a href="<!--#echo var="menu_partecipa" -->">
                         <div class="content-circle">
                             <h5>Partecipa <br>in esclusiva: <br>clicca qui</h5>
                         </div>
