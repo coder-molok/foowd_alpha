@@ -127,6 +127,13 @@ article h4 {
 .menu-tile .selected {
     background-color: #bed25a;
 }
+.menu-tile a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin: 0.4em 0;
+}
+
 .menu-tile td:hover {
     background-color: #000;
     transition: background-color 0.5s;
@@ -141,10 +148,6 @@ article h4 {
     top: 182px;
     width: 18%;
     z-index: 10;
-}
-
-.menu-tile a {
-    text-decoration: none;
 }
 
 .content-wrapper {
