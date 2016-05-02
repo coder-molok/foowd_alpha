@@ -12,8 +12,6 @@
             switched="servizi" switchon="mouseenter" switchoff="mouseleave" 
             initialSwitch="off">
           <a href="<!--#echo var="menu_services" -->">servizi</a></td>
-        <td <!--#if expr="$menu_international='#'" -->class="selected"<!--#endif -->>
-            <a href="<!--#echo var="menu_international" -->">international</a></td>
         <td class="switch <!--#if expr="$menu_about='#'" -->selected<!--#endif -->" 
             switched="sudinoi" switchon="mouseenter" switchoff="mouseleave" 
             initialSwitch="off">
