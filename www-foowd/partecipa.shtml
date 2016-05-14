@@ -72,8 +72,8 @@
                     </p>
                     <p><strong>Nota Bene</strong> - nel campo "<em>Messaggio</em>", devi 
                     <strong>espressamente</strong> indicare la tua accettazione dei 
-                    <a href="<!--#echo var="menu_disclaimer" -->#termini">termini d'uso</a> e della 
-                    <a href="<!--#echo var="menu_disclaimer" -->#privacy">privacy policy</a> ai sensi del D-Lgs 196/2003, come suggerito.
+                    <a href="<!--#echo var="menu_termini" -->">termini d'uso</a> e della 
+                    <a href="<!--#echo var="menu_disclaimer" -->">privacy policy</a> ai sensi del D-Lgs 196/2003, come suggerito.
                     </p>
                     <table id="tab_iscrizione">
                         <tr>

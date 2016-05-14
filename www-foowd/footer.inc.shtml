@@ -43,9 +43,9 @@
         <td class="content-text">
             <h6>disclaimer</h6>
             <p class="privacyeuso">
-                <a href="<!--#echo var="menu_disclaimer" -->">
-                    Termini d'uso e Privacy
-                </a>
+                <a href="<!--#echo var="menu_termini" -->">Termini d'uso</a>
+                e
+                <a href="<!--#echo var="menu_disclaimer" -->">Privacy</a>
             </p>
             <p>
                 &copy; 2014 by <strong>foowd srl</strong>
